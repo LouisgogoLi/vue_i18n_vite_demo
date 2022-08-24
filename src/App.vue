@@ -1,6 +1,24 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
+
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const sLanguage = computed({
+  get: () => store.getters.getLanguage,
+  set: (val) => handleChangeLanguage(val),
+});
+
+const { locale } = useI18n();
+locale.value = sLanguage.value;
+
+const handleChangeLanguage = (val) => {
+  store.dispatch("handSetLanguageState", val);
+  locale.value = val;
+};
 </script>
 
 <template>
@@ -14,6 +32,13 @@ import HelloWorld from "./components/HelloWorld.vue";
     />
 
     <div class="wrapper">
+      <div>
+        <select v-model="sLanguage">
+          <option value="zh_tw">中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
       <HelloWorld msg="You did it!" />
 
       <nav>

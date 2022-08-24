@@ -1,0 +1,11 @@
+{
+  "message": "你好 i18n !!",
+  "installed_cli_plugins": "下載CLI插件",
+  "this_is_an_about_page": "這是about頁面",
+  "essential_links": "基本連結",
+  "ecosystem": "生態系統",
+  "configure_customize_project": "如何配置/自定義此專案的指南和方法",
+  "check_out_the": "查看",
+  "Welcome_to_Your_Vue": "測試全域",
+  "propsI18nValue": "測試vue"
+}

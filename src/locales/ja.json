@@ -1,0 +1,11 @@
+{
+  "message": "こんにちはi18n !!",
+  "installed_cli_plugins": "CLIプラグインをダウンロードする",
+  "this_is_an_about_page": "これはページについてです",
+  "essential_links": "基本リンク",
+  "ecosystem": "生態系",
+  "configure_customize_project": "このプロジェクトを構成/カスタマイズする方法に関するガイドラインと方法",
+  "check_out_the": "チェック",
+  "Welcome_to_Your_Vue": "テストユニバース",
+  "propsI18nValue": "テストビュー"
+}

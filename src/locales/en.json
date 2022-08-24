@@ -1,0 +1,11 @@
+{
+  "message": "hello i18n !!",
+  "installed_cli_plugins": "Installed CLI Plugins",
+  "this_is_an_about_page": "This is an about page",
+  "essential_links": "Essential Links",
+  "ecosystem": "Ecosystem",
+  "configure_customize_project": "For a guide and recipes on how to configure / customize this project,",
+  "check_out_the": "check out the",
+  "Welcome_to_Your_Vue": "test global",
+  "propsI18nValue": "Test vue"
+}
