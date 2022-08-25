@@ -1,11 +1,11 @@
 {
   "message": "你好 i18n !!",
-  "installed_cli_plugins": "下載CLI插件",
+  "created_project": "您已經成功創建了一個項目",
   "this_is_an_about_page": "這是about頁面",
-  "essential_links": "基本連結",
-  "ecosystem": "生態系統",
-  "configure_customize_project": "如何配置/自定義此專案的指南和方法",
-  "check_out_the": "查看",
-  "Welcome_to_Your_Vue": "測試全域",
-  "propsI18nValue": "測試vue"
+  "Documentation": "文檔",
+  "Tooling": "配置",
+  "Ecosystem": "生態系統",
+  "Community": "社區",
+  "Support_Vue": "協助 Vue",
+  "Home": "首頁"
 }

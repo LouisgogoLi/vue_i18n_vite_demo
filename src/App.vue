@@ -1,26 +1,3 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-
-import { useI18n } from "vue-i18n";
-import { computed } from "vue";
-import { useStore } from "vuex";
-
-const store = useStore();
-const sLanguage = computed({
-  get: () => store.getters.getLanguage,
-  set: (val) => handleChangeLanguage(val),
-});
-
-const { locale } = useI18n();
-locale.value = sLanguage.value;
-
-const handleChangeLanguage = (val) => {
-  store.dispatch("handSetLanguageState", val);
-  locale.value = val;
-};
-</script>
-
 <template>
   <header>
     <img
@@ -33,16 +10,16 @@ const handleChangeLanguage = (val) => {
 
     <div class="wrapper">
       <div>
-        <select v-model="sLanguage">
+        <select v-model="replyLanguage">
           <option value="zh_tw">中文</option>
           <option value="en">English</option>
           <option value="ja">日本語</option>
         </select>
       </div>
-      <HelloWorld msg="You did it!" />
+      <HelloWorld :msg="msg" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">{{ $t("Home") }}</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
@@ -50,6 +27,31 @@ const handleChangeLanguage = (val) => {
 
   <RouterView />
 </template>
+
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+import HelloWorld from "./components/HelloWorld.vue";
+
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+import { useCommonStore } from "./stores/common";
+const common = useCommonStore();
+
+const replyLanguage = computed({
+  get: () => common.language,
+  set: (val) => handleChangeLanguage(val),
+});
+
+const { locale, t } = useI18n();
+locale.value = replyLanguage.value;
+
+const handleChangeLanguage = (val) => {
+  common.language = val;
+  locale.value = val;
+};
+
+const msg = computed(() => t("message"));
+</script>
 
 <style scoped>
 header {

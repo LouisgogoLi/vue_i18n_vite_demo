@@ -1,18 +1,9 @@
-<script setup>
-import WelcomeItem from "./WelcomeItem.vue";
-import DocumentationIcon from "./icons/IconDocumentation.vue";
-import ToolingIcon from "./icons/IconTooling.vue";
-import EcosystemIcon from "./icons/IconEcosystem.vue";
-import CommunityIcon from "./icons/IconCommunity.vue";
-import SupportIcon from "./icons/IconSupport.vue";
-</script>
-
 <template>
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Documentation</template>
+    <template #heading>{{ $t("Documentation") }}</template>
 
     Vue’s
     <a target="_blank" href="https://vuejs.org/">official documentation</a>
@@ -23,7 +14,7 @@ import SupportIcon from "./icons/IconSupport.vue";
     <template #icon>
       <ToolingIcon />
     </template>
-    <template #heading>Tooling</template>
+    <template #heading>{{ $t("Tooling") }}</template>
 
     This project is served and bundled with
     <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite</a>.
@@ -45,7 +36,7 @@ import SupportIcon from "./icons/IconSupport.vue";
     <template #icon>
       <EcosystemIcon />
     </template>
-    <template #heading>Ecosystem</template>
+    <template #heading>{{ $t("Ecosystem") }}</template>
 
     Get official tools and libraries for your project:
     <a target="_blank" href="https://pinia.vuejs.org/">Pinia</a>,
@@ -64,7 +55,7 @@ import SupportIcon from "./icons/IconSupport.vue";
     <template #icon>
       <CommunityIcon />
     </template>
-    <template #heading>Community</template>
+    <template #heading>{{ $t("Community") }}</template>
 
     Got stuck? Ask your question on
     <a target="_blank" href="https://chat.vuejs.org">Vue Land</a>, our official
@@ -82,10 +73,19 @@ import SupportIcon from "./icons/IconSupport.vue";
     <template #icon>
       <SupportIcon />
     </template>
-    <template #heading>Support Vue</template>
+    <template #heading>{{ $t("Support_Vue") }}</template>
 
     As an independent project, Vue relies on community backing for its
     sustainability. You can help us by
     <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
   </WelcomeItem>
 </template>
+
+<script setup>
+import WelcomeItem from "./WelcomeItem.vue";
+import DocumentationIcon from "./icons/IconDocumentation.vue";
+import ToolingIcon from "./icons/IconTooling.vue";
+import EcosystemIcon from "./icons/IconEcosystem.vue";
+import CommunityIcon from "./icons/IconCommunity.vue";
+import SupportIcon from "./icons/IconSupport.vue";
+</script>
