@@ -23,7 +23,7 @@ function loadLocaleMessages() {
 export default createI18n({
   legacy: false,
   globalInjection: true,
-  locale: import.meta.env.VITE_VUE_APP_I18N_LOCALE || "zh_tw",
-  fallbackLocale: import.meta.env.VITE_VUE_APP_I18N_FALLBACK_LOCALE || "zh_tw",
+  locale: import.meta.env.VITE_APP_I18N_LOCALE || "zh_tw",
+  fallbackLocale: import.meta.env.VITE_APP_I18N_FALLBACK_LOCALE || "zh_tw",
   messages: loadLocaleMessages(),
 });

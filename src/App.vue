@@ -1,31 +1,33 @@
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
+  <el-config-provider :locale="localeElement">
+    <header>
+      <img
+        alt="Vue logo"
+        class="logo"
+        src="@/assets/logo.svg"
+        width="125"
+        height="125"
+      />
 
-    <div class="wrapper">
-      <div>
-        <select v-model="replyLanguage">
-          <option value="zh_tw">中文</option>
-          <option value="en">English</option>
-          <option value="ja">日本語</option>
-        </select>
+      <div class="wrapper">
+        <div>
+          <select v-model="replyLanguage">
+            <option value="zh_tw">中文</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
+        <HelloWorld :msg="msg" />
+
+        <nav>
+          <RouterLink to="/">{{ $t("Home") }}</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+        </nav>
       </div>
-      <HelloWorld :msg="msg" />
+    </header>
 
-      <nav>
-        <RouterLink to="/">{{ $t("Home") }}</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <RouterView />
+  </el-config-provider>
 </template>
 
 <script setup>
@@ -33,9 +35,14 @@ import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
 
 import { useI18n } from "vue-i18n";
-import { computed } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import { useCommonStore } from "./stores/common";
 const common = useCommonStore();
+
+import zhTwElement from "element-plus/lib/locale/lang/zh-tw";
+import enElement from "element-plus/lib/locale/lang/en";
+
+const localeElement = ref(enElement);
 
 const replyLanguage = computed({
   get: () => common.language,
@@ -51,6 +58,26 @@ const handleChangeLanguage = (val) => {
 };
 
 const msg = computed(() => t("message"));
+
+const fnChangeLanguage = () => {
+  console.log(common.language);
+  if (common.language === "en") {
+    localeElement.value = enElement;
+  } else if (common.language === "zh_tw") {
+    localeElement.value = zhTwElement;
+  }
+};
+
+watch(
+  () => common.language,
+  () => {
+    fnChangeLanguage();
+  }
+);
+
+onMounted(() => {
+  fnChangeLanguage();
+});
 </script>
 
 <style scoped>
