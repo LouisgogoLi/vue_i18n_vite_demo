@@ -4,8 +4,7 @@ name: Deploy GitHub Pages
 # 觸發條件：在 push 到 main/master 分支後，新的 Github 項目 應該都是 main，而之前的項目一般都是 master
 on:
   push:
-    branches:
-      - main
+   branches: [ "master" , "main" ]
 
 # 任務
 jobs:
