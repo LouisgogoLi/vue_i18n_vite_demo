@@ -1,4 +1,4 @@
-# communication_vite_demo
+# vue_i18n_vite_demo
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -28,10 +28,10 @@ npm run dev
 npm run build
 ```
 
-### Run Headed Component Tests with [Cypress Component Testing](https://on.cypress.io/component)
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit # or `npm run test:unit:ci` for headless testing
+npm run test:unit
 ```
 
 ### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
