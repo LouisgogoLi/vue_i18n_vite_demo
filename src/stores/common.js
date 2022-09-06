@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import { defineStore, acceptHMRUpdate } from "pinia";
 
 export const useCommonStore = defineStore({
   id: "common",
@@ -12,3 +12,7 @@ export const useCommonStore = defineStore({
     },
   },
 });
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useCommonStore, import.meta.hot));
+}

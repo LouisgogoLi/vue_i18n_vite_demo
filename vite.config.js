@@ -3,6 +3,7 @@ import { resolve, dirname } from "node:path";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+/// <reference types="vitest" />
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
@@ -43,6 +44,11 @@ export default defineConfig(({ mode }) => {
     },
     esbuild: {
       drop: mode === "production" ? ["console", "debugger"] : [],
+    },
+    test: {
+      globals: true,
+      environment: "jsdom",
+      setupFiles: ["./src/views/__tests__/global_setup/vitest.init.js"],
     },
   };
 });
