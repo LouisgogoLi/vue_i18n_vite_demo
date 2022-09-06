@@ -9,9 +9,6 @@ module.exports = {
     "@vue/eslint-config-prettier",
     "plugin:vitest-globals/recommended",
   ],
-  parserOptions: {
-    ecmaVersion: "latest",
-  },
   overrides: [
     {
       files: ["**/__tests__/*.{j,t}s?(x)", "**/*.spec.{j,t}s?(x)"],
@@ -24,4 +21,7 @@ module.exports = {
       extends: ["plugin:cypress/recommended"],
     },
   ],
+  parserOptions: {
+    ecmaVersion: "latest",
+  },
 };

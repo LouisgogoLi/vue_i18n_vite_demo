@@ -10,7 +10,7 @@
       />
 
       <div class="wrapper">
-        <div>
+        <div style="height: 40px">
           <select v-model="replyLanguage">
             <option value="zh_tw">中文</option>
             <option value="en">English</option>
