@@ -6,7 +6,7 @@
     "build": "vite build",
     "build:debug": "vite build --mode debugpro",
     "preview": "vite preview --port 4173",
-    "test:unit": "vitest ",
+    "test:unit": "vitest",
     "test:unit:ui": "vitest --ui",
     "test:unit:coverage": "vitest run --coverage",
     "test:e2e": "start-server-and-test preview http://localhost:4173/vue_i18n_vite_demo/ 'cypress open --e2e'",
