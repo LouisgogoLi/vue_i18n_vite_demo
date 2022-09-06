@@ -4,7 +4,7 @@
       <img
         alt="Vue logo"
         class="logo"
-        src="@/assets/logo.svg"
+        src="@/assets/svg/logo.svg"
         width="125"
         height="125"
       />
@@ -34,13 +34,13 @@
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
 
+import zhTwElement from "element-plus/lib/locale/lang/zh-tw";
+import enElement from "element-plus/lib/locale/lang/en";
+
 import { useI18n } from "vue-i18n";
 import { ref, computed, watch, onMounted } from "vue";
 import { useCommonStore } from "./stores/common";
 const common = useCommonStore();
-
-import zhTwElement from "element-plus/lib/locale/lang/zh-tw";
-import enElement from "element-plus/lib/locale/lang/en";
 
 const localeElement = ref(enElement);
 
