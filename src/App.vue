@@ -11,7 +11,7 @@
 
       <div class="wrapper">
         <div style="height: 40px">
-          <select v-model="replyLanguage">
+          <select v-model="common.language">
             <option value="zh_tw">中文</option>
             <option value="en">English</option>
             <option value="ja">日本語</option>
@@ -32,51 +32,31 @@
 
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import HelloWorld from "@/components/HelloWorld.vue";
 
 import zhTwElement from "element-plus/lib/locale/lang/zh-tw";
 import enElement from "element-plus/lib/locale/lang/en";
 
 import { useI18n } from "vue-i18n";
-import { ref, computed, watch, onMounted } from "vue";
-import { useCommonStore } from "./stores/common";
+import { ref, computed, watchEffect } from "vue";
+import { useCommonStore } from "@/stores/common";
 const common = useCommonStore();
 
 const localeElement = ref(enElement);
 
-const replyLanguage = computed({
-  get: () => common.language,
-  set: (val) => handleChangeLanguage(val),
-});
-
 const { locale, t } = useI18n();
-locale.value = replyLanguage.value;
-
-const handleChangeLanguage = (val) => {
-  common.language = val;
-  locale.value = val;
-};
+locale.value = common.language;
 
 const msg = computed(() => t("message"));
 
-const fnChangeLanguage = () => {
+watchEffect(() => {
   console.log(common.language);
+  locale.value = common.language;
   if (common.language === "en") {
     localeElement.value = enElement;
   } else if (common.language === "zh_tw") {
     localeElement.value = zhTwElement;
   }
-};
-
-watch(
-  () => common.language,
-  () => {
-    fnChangeLanguage();
-  }
-);
-
-onMounted(() => {
-  fnChangeLanguage();
 });
 </script>
 
