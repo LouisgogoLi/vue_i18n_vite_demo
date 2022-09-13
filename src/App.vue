@@ -31,13 +31,13 @@
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "@/components/HelloWorld.vue";
 
 import zhTwElement from "element-plus/lib/locale/lang/zh-tw";
 import enElement from "element-plus/lib/locale/lang/en";
 
 import { useI18n } from "vue-i18n";
+import { RouterLink, RouterView } from "vue-router";
 import { ref, computed, watchEffect } from "vue";
 import { useCommonStore } from "@/stores/common";
 const common = useCommonStore();
