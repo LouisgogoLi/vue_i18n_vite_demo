@@ -2,9 +2,8 @@
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      {{ $t("created_project") }}
-      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
-      <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
+      {{ $t('created_project') }}
+      <a target="_blank" href="https://vitejs.dev/">Vite</a> + <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
     </h3>
   </div>
 </template>

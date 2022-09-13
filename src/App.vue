@@ -1,13 +1,7 @@
 <template>
   <el-config-provider :locale="localeElement">
     <header>
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="@/assets/svg/logo.svg"
-        width="125"
-        height="125"
-      />
+      <img alt="Vue logo" class="logo" src="@/assets/svg/logo.svg" width="125" height="125" />
 
       <div class="wrapper">
         <div style="height: 40px">
@@ -20,7 +14,7 @@
         <HelloWorld :msg="msg" />
 
         <nav>
-          <RouterLink to="/">{{ $t("Home") }}</RouterLink>
+          <RouterLink to="/">{{ $t('Home') }}</RouterLink>
           <RouterLink to="/about">About</RouterLink>
         </nav>
       </div>
@@ -31,15 +25,15 @@
 </template>
 
 <script setup>
-import HelloWorld from "@/components/HelloWorld.vue";
+import HelloWorld from '@/components/HelloWorld.vue';
 
-import zhTwElement from "element-plus/lib/locale/lang/zh-tw";
-import enElement from "element-plus/lib/locale/lang/en";
+import zhTwElement from 'element-plus/lib/locale/lang/zh-tw';
+import enElement from 'element-plus/lib/locale/lang/en';
 
-import { useI18n } from "vue-i18n";
-import { RouterLink, RouterView } from "vue-router";
-import { ref, computed, watchEffect } from "vue";
-import { useCommonStore } from "@/stores/common";
+import { useI18n } from 'vue-i18n';
+import { RouterLink, RouterView } from 'vue-router';
+import { ref, computed, watchEffect } from 'vue';
+import { useCommonStore } from '@/stores/common';
 const common = useCommonStore();
 
 const localeElement = ref(enElement);
@@ -47,14 +41,14 @@ const localeElement = ref(enElement);
 const { locale, t } = useI18n();
 locale.value = common.language;
 
-const msg = computed(() => t("message"));
+const msg = computed(() => t('message'));
 
 watchEffect(() => {
   console.log(common.language);
   locale.value = common.language;
-  if (common.language === "en") {
+  if (common.language === 'en') {
     localeElement.value = enElement;
-  } else if (common.language === "zh_tw") {
+  } else if (common.language === 'zh_tw') {
     localeElement.value = zhTwElement;
   }
 });
